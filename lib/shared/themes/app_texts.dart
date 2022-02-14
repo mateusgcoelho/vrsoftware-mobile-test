@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 
 class AppTexts {
-  static final appBar = GoogleFonts.roboto(
+  static final appBar = TextStyle(
     color: AppColors.black,
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: FontWeight.bold,
   );
 }

@@ -10,13 +10,30 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(152),
-        child: AppBar(
-          backgroundColor: AppColors.white,
-          elevation: 0,
-          title: Text(
-            "Cursos",
-            style: AppTexts.appBar,
+        preferredSize: Size.fromHeight(120),
+        child: Center(
+          child: ListTile(
+            contentPadding: EdgeInsets.only(left: 24, right: 24),
+            title: Text(
+              "Cursos",
+              style: AppTexts.appBar,
+            ),
+            trailing: InkWell(
+              onTap: () {},
+              child: Ink(
+                width: 52,
+                height: 52,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: AppColors.primary,
+                ),
+                child: Icon(
+                  Icons.add,
+                  color: AppColors.white,
+                  size: 28,
+                ),
+              ),
+            ),
           ),
         ),
       ),
