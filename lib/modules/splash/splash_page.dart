@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_images.dart';
 
 class SplashPage extends StatelessWidget {
@@ -7,8 +8,12 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Center(
-        child: Image.asset(AppImages.logo),
+        child: Image.asset(
+          AppImages.logo,
+          width: 360,
+        ),
       ),
     );
   }
