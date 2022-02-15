@@ -84,7 +84,7 @@ class StudentViewPage extends StatelessWidget {
                             style: AppTexts.courseInfoDescription,
                             children: student.courses
                                 .map((course) => TextSpan(
-                                      text: course.description + "\n",
+                                      text: course.description,
                                       style: AppTexts.courseInfoDescriptionBold,
                                     ))
                                 .toList(),

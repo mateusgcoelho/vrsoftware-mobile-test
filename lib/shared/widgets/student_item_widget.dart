@@ -6,11 +6,11 @@ import 'package:mobile/shared/themes/app_texts.dart';
 class StudentItemWidget extends StatelessWidget {
   final String name;
   final String subTitleName;
-  final Function() onTap;
+  final Function()? onTap;
 
   const StudentItemWidget({
     Key? key,
-    required this.onTap,
+    this.onTap,
     required this.name,
     required this.subTitleName,
   }) : super(key: key);
@@ -47,7 +47,7 @@ class StudentItemWidget extends StatelessWidget {
               Icon(
                 Icons.chevron_right,
                 size: 24,
-                color: AppColors.gray,
+                color: this.onTap != null ? AppColors.gray : AppColors.white,
               ),
             ],
           ),

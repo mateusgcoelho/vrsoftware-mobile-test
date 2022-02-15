@@ -2,7 +2,7 @@ import 'package:mobile/models/course_model.dart';
 
 class StudentModel {
   final String name;
-  final List<CourseModel> courses;
+  final List courses;
   final String createdAt;
 
   StudentModel(this.name, this.courses, this.createdAt);

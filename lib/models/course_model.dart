@@ -13,7 +13,7 @@ class CourseModel {
 
     List<StudentModel> newList = tempList
         .map((item) =>
-            StudentModel(item["name"], item["course_code"], json["created_at"]))
+            StudentModel(item["name"], item["courses"], item["created_at"]))
         .toList();
 
     return CourseModel(

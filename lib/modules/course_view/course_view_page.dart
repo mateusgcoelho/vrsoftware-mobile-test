@@ -88,13 +88,6 @@ class CourseViewPage extends StatelessWidget {
                     .map((studentCourse) => StudentItemWidget(
                           name: studentCourse.name,
                           subTitleName: studentCourse.createdAt,
-                          onTap: () {
-                            Navigator.pushNamed(
-                              context,
-                              "/student_view",
-                              arguments: studentCourse,
-                            );
-                          },
                         ))
                     .toList(),
               ),
