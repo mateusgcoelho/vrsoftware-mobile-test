@@ -5,4 +5,5 @@ class AppColors {
   static final primary = Color(0xFFAF71FF);
   static final black = Color(0xFF111111);
   static final gray = Color(0xFF726E7A);
+  static final primaryLight = Color(0xFFF1E7FF);
 }
