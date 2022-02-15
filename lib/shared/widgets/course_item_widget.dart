@@ -9,27 +9,30 @@ class CourseItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Container(
-      width: size.width,
+    return InkWell(
+      onTap: () {},
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 24,
           vertical: 12,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "INFORMATICA BASICA",
-              style: AppTexts.courseItemTitle,
-            ),
-            IconButton(
-              icon: Icon(Icons.chevron_right),
-              iconSize: 32,
-              color: AppColors.black,
-              onPressed: () {},
-            ),
-          ],
+        child: Ink(
+          width: size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "INFORMATICA BASICA",
+                style: AppTexts.courseItemTitle,
+              ),
+              IconButton(
+                icon: Icon(Icons.chevron_right),
+                iconSize: 28,
+                color: AppColors.black,
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );
