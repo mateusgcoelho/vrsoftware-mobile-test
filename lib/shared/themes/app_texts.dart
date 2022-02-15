@@ -32,4 +32,14 @@ class AppTexts {
     fontSize: 16,
     fontWeight: FontWeight.w600,
   );
+  static final buttonText = TextStyle(
+    color: AppColors.primary,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+  static final modalTitle = TextStyle(
+    color: AppColors.black,
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+  );
 }

@@ -3,6 +3,7 @@ import 'package:mobile/models/course_model.dart';
 import 'package:mobile/models/student_model.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
+import 'package:mobile/shared/widgets/course_view_modal_widget.dart';
 import 'package:mobile/shared/widgets/student_item_widget.dart';
 import 'package:mobile/shared/widgets/tab_item_widget.dart';
 
@@ -53,7 +54,12 @@ class CourseViewPage extends StatelessWidget {
                     color: AppColors.gray,
                     iconSize: 26,
                     onPressed: () {
-                      Navigator.pop(context);
+                      showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          builder: (BuildContext context) {
+                            return CourseViewModalWidget();
+                          });
                     },
                   ),
                 ],
