@@ -4,13 +4,15 @@ import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 
 class StudentItemWidget extends StatelessWidget {
-  final StudentModel student;
+  final String name;
+  final String subTitleName;
   final Function() onTap;
 
   const StudentItemWidget({
     Key? key,
-    required this.student,
     required this.onTap,
+    required this.name,
+    required this.subTitleName,
   }) : super(key: key);
 
   @override
@@ -33,11 +35,11 @@ class StudentItemWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    this.student.name,
+                    this.name,
                     style: AppTexts.courseItemTitle,
                   ),
                   Text(
-                    this.student.createdAt,
+                    this.subTitleName,
                     style: AppTexts.courseItemTitle,
                   ),
                 ],

@@ -86,6 +86,8 @@ class CourseViewPage extends StatelessWidget {
               Column(
                 children: course.students
                     .map((studentCourse) => StudentItemWidget(
+                          name: studentCourse.name,
+                          subTitleName: studentCourse.createdAt,
                           onTap: () {
                             Navigator.pushNamed(
                               context,
@@ -93,7 +95,6 @@ class CourseViewPage extends StatelessWidget {
                               arguments: studentCourse,
                             );
                           },
-                          student: studentCourse,
                         ))
                     .toList(),
               ),
