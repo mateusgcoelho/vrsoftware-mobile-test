@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/modules/all_students/all_students_page.dart';
-import 'package:mobile/modules/courses/courses_page.dart';
+import 'package:mobile/modules/home/all_students/all_students_page.dart';
+import 'package:mobile/modules/home/courses/courses_page.dart';
 import 'package:mobile/modules/home/home_controller.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
@@ -13,12 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = HomeController();
+
   final pages = [
     CoursesPage(),
     AllStudentsPage(),
   ];
-
-  final controller = HomeController();
 
   @override
   Widget build(BuildContext context) {
