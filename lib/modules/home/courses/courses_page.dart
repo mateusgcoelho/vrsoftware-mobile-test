@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/models/course_model.dart';
 import 'package:mobile/modules/home/home_controller.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/course_item_widget.dart';
@@ -46,8 +47,17 @@ class _CoursesPageState extends State<CoursesPage> {
 
         if (snapshot.hasData) {
           children = snapshot.data!
-              .map((course) =>
-                  CourseItemWidget(name: course["description"], onTap: () {}))
+              .map((course) => CourseItemWidget(
+                  name: course["description"],
+                  onTap: () {
+                    CourseModel courseObject = CourseModel.fromJson(course);
+
+                    Navigator.pushNamed(
+                      context,
+                      "/course_view",
+                      arguments: courseObject,
+                    );
+                  }))
               .toList();
         }
 

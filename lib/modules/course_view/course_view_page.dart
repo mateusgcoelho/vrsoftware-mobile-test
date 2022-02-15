@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/models/course_model.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/student_item_widget.dart';
 import 'package:mobile/shared/widgets/tab_item_widget.dart';
 
 class CourseViewPage extends StatelessWidget {
-  const CourseViewPage({Key? key}) : super(key: key);
+  final CourseModel course;
+
+  const CourseViewPage({
+    Key? key,
+    required this.course,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,7 @@ class CourseViewPage extends StatelessWidget {
                     },
                   ),
                   Text(
-                    "INFORMATICA BASICA",
+                    course.description,
                     style: AppTexts.courseInfoAppBar,
                     textAlign: TextAlign.center,
                   ),
@@ -61,7 +67,7 @@ class CourseViewPage extends StatelessWidget {
                   horizontal: 32,
                 ),
                 child: Text(
-                  "Descrição ou basicamente um resumão sobre o curso em especifico né mano.",
+                  course.ementa,
                   style: AppTexts.courseInfoDescription,
                 ),
               ),

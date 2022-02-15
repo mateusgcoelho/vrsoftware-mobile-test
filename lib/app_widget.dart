@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobile/models/course_model.dart';
 import 'package:mobile/modules/course_view/course_view_page.dart';
 import 'package:mobile/modules/home/home_page.dart';
 import 'package:mobile/modules/splash/splash_page.dart';
@@ -29,7 +30,9 @@ class AppWidget extends StatelessWidget {
       routes: {
         "/splash": (context) => SplashPage(),
         "/home": (context) => HomePage(),
-        "/course_view": (context) => CourseViewPage(),
+        "/course_view": (context) => CourseViewPage(
+              course: ModalRoute.of(context)!.settings.arguments as CourseModel,
+            ),
       },
     );
   }
