@@ -23,64 +23,76 @@ class StudentViewPage extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 136,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 0,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.chevron_left,
-                    ),
-                    color: AppColors.primary,
-                    iconSize: 26,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: Icon(
+                    Icons.chevron_left,
                   ),
-                  Text(
-                    student.name,
-                    style: AppTexts.courseInfoAppBar,
-                    textAlign: TextAlign.center,
+                  color: AppColors.primary,
+                  iconSize: 26,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Text(
+                  student.name,
+                  style: AppTexts.courseInfoAppBar,
+                  textAlign: TextAlign.center,
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.auto_fix_high,
                   ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.auto_fix_high,
-                    ),
-                    color: AppColors.gray,
-                    iconSize: 26,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ],
-              ),
+                  color: AppColors.gray,
+                  iconSize: 26,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
             ),
           ),
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                ),
-                child: Text(
-                  student.createdAt,
-                  style: AppTexts.courseInfoDescription,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 32,
-                ),
-                child: Row(
-                  children: [
-                    TabItemWidget(
-                      title: "CURSOS",
-                    ),
-                  ],
+              Container(
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 48),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text.rich(
+                        TextSpan(
+                          text: "Data de Registro: ",
+                          style: AppTexts.courseInfoDescription,
+                          children: [
+                            TextSpan(
+                              text: student.createdAt,
+                              style: AppTexts.courseInfoDescriptionBold,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16),
+                        child: Text.rich(
+                          TextSpan(
+                            text: "Cursos: \n",
+                            style: AppTexts.courseInfoDescription,
+                            children: student.courses
+                                .map((course) => TextSpan(
+                                      text: course.description + "\n",
+                                      style: AppTexts.courseInfoDescriptionBold,
+                                    ))
+                                .toList(),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               Column(children: []),

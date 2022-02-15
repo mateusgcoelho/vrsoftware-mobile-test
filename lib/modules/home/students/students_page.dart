@@ -4,14 +4,14 @@ import 'package:mobile/modules/home/home_controller.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/student_item_widget.dart';
 
-class AllStudentsPage extends StatefulWidget {
-  const AllStudentsPage({Key? key}) : super(key: key);
+class StudentsPage extends StatefulWidget {
+  const StudentsPage({Key? key}) : super(key: key);
 
   @override
-  _AllStudentsPageState createState() => _AllStudentsPageState();
+  _StudentsPageState createState() => _StudentsPageState();
 }
 
-class _AllStudentsPageState extends State<AllStudentsPage> {
+class _StudentsPageState extends State<StudentsPage> {
   final controller = HomeController();
 
   @override

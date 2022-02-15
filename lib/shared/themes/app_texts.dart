@@ -22,6 +22,11 @@ class AppTexts {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+  static final courseInfoDescriptionBold = TextStyle(
+    color: AppColors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
   static final buttonTabItem = TextStyle(
     color: AppColors.primary,
     fontSize: 16,
