@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/providers/app_provider.dart';
+import 'package:mobile/modules/home/home_controller.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/button_widget.dart';
 import 'package:mobile/shared/widgets/input_widget.dart';
+import 'package:provider/provider.dart';
 
 class CreateCoursePage extends StatelessWidget {
-  const CreateCoursePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    print(context.read<AppProvider>().courses);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

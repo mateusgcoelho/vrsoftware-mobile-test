@@ -17,7 +17,7 @@ class _CoursesPageState extends State<CoursesPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List>(
-      future: controller.getAllCourses(),
+      future: controller.getAllCourses(context),
       builder: (context, snapshot) {
         List<Widget> children = [
           Center(
