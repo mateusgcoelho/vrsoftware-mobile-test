@@ -4,10 +4,12 @@ import 'package:mobile/shared/themes/app_texts.dart';
 
 class CourseItemWidget extends StatelessWidget {
   final String name;
+  final Function() onTap;
 
   const CourseItemWidget({
     Key? key,
     required this.name,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -15,7 +17,7 @@ class CourseItemWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return InkWell(
-      onTap: () {},
+      onTap: this.onTap,
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 24,

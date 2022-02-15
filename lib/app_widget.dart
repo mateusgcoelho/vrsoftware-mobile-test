@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobile/modules/course_view/course_view_page.dart';
 import 'package:mobile/modules/home/home_page.dart';
 import 'package:mobile/modules/splash/splash_page.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
@@ -28,6 +29,7 @@ class AppWidget extends StatelessWidget {
       routes: {
         "/splash": (context) => SplashPage(),
         "/home": (context) => HomePage(),
+        "/course_view": (context) => CourseViewPage(),
       },
     );
   }

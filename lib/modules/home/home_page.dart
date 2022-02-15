@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
             ),
             IconButton(
               icon: Icon(
-                Icons.description_outlined,
+                Icons.people,
                 size: 32,
                 color: controller.currentPage == 1
                     ? AppColors.primary

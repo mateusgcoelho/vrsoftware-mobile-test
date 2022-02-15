@@ -12,4 +12,14 @@ class AppTexts {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+  static final courseInfoAppBar = TextStyle(
+    color: AppColors.black,
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+  );
+  static final courseInfoDescription = TextStyle(
+    color: AppColors.gray,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
 }

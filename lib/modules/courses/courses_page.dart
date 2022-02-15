@@ -13,9 +13,13 @@ class CoursesPage extends StatelessWidget {
       child: Column(
         children: [
           CourseItemWidget(
+            onTap: () {
+              Navigator.pushNamed(context, "/course_view");
+            },
             name: "Informatica Basica",
           ),
           CourseItemWidget(
+            onTap: () {},
             name: "Banco de Dados",
           ),
         ],
