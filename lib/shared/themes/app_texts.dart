@@ -7,4 +7,9 @@ class AppTexts {
     fontSize: 28,
     fontWeight: FontWeight.bold,
   );
+  static final courseItemTitle = TextStyle(
+    color: AppColors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
 }

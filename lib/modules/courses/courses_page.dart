@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/shared/widgets/course_item_widget.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({Key? key}) : super(key: key);
@@ -9,10 +10,10 @@ class CoursesPage extends StatelessWidget {
 
     return Container(
       width: size.width,
-      color: Colors.red,
       child: Column(
         children: [
-          Text('oi'),
+          CourseItemWidget(),
+          CourseItemWidget(),
         ],
       ),
     );
