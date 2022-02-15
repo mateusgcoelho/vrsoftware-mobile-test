@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/modules/courses/courses_page.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final pages = [
+    CoursesPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +47,11 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Text("oi"),
+      body: Column(
+        children: [
+          pages[0],
+        ],
+      ),
     );
   }
 }
