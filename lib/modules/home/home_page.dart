@@ -75,7 +75,9 @@ class _HomePageState extends State<HomePage> {
                 style: AppTexts.appBar,
               ),
               trailing: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, "/create_course");
+                },
                 child: Ink(
                   width: 52,
                   height: 52,

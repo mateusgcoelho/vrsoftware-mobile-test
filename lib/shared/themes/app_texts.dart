@@ -42,4 +42,9 @@ class AppTexts {
     fontSize: 22,
     fontWeight: FontWeight.w600,
   );
+  static final input = TextStyle(
+    color: AppColors.gray,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  );
 }
