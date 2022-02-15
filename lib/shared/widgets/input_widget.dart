@@ -60,12 +60,17 @@ class InputTextWidget extends StatelessWidget {
               fillColor: (this.enable == null || this.enable == true)
                   ? AppColors.white
                   : AppColors.backgroundInputDisabled,
-              filled: true,
+              filled: false,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide.none,
               ),
             ),
+          ),
+          Container(
+            width: double.infinity,
+            color: AppColors.primaryLight,
+            height: 2,
           ),
         ],
       ),

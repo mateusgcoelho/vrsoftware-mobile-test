@@ -76,7 +76,12 @@ class _HomePageState extends State<HomePage> {
               ),
               trailing: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, "/create_course");
+                  Navigator.pushNamed(
+                    context,
+                    controller.currentPage == 0
+                        ? "/create_course"
+                        : "/create_student",
+                  );
                 },
                 child: Ink(
                   width: 52,

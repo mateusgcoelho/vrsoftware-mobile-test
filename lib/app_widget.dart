@@ -4,6 +4,7 @@ import 'package:mobile/models/course_model.dart';
 import 'package:mobile/models/student_model.dart';
 import 'package:mobile/modules/course_view/course_view_page.dart';
 import 'package:mobile/modules/create_course/create_course_page.dart';
+import 'package:mobile/modules/create_student/create_student_page.dart';
 import 'package:mobile/modules/home/home_page.dart';
 import 'package:mobile/modules/splash/splash_page.dart';
 import 'package:mobile/modules/student_view/student_view_page.dart';
@@ -41,6 +42,7 @@ class AppWidget extends StatelessWidget {
                   ModalRoute.of(context)!.settings.arguments as StudentModel,
             ),
         "/create_course": (context) => CreateCoursePage(),
+        "/create_student": (context) => CreateStudentPage(),
       },
     );
   }
