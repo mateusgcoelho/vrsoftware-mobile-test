@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mobile/models/course_model.dart';
+import 'package:mobile/models/student_model.dart';
 import 'package:mobile/modules/course_view/course_view_page.dart';
 import 'package:mobile/modules/home/home_page.dart';
 import 'package:mobile/modules/splash/splash_page.dart';
+import 'package:mobile/modules/student_view/student_view_page.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 
 class AppWidget extends StatelessWidget {
@@ -32,6 +34,10 @@ class AppWidget extends StatelessWidget {
         "/home": (context) => HomePage(),
         "/course_view": (context) => CourseViewPage(
               course: ModalRoute.of(context)!.settings.arguments as CourseModel,
+            ),
+        "/student_view": (context) => StudentViewPage(
+              student:
+                  ModalRoute.of(context)!.settings.arguments as StudentModel,
             ),
       },
     );

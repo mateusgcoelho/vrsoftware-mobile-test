@@ -14,17 +14,15 @@ class CourseItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return InkWell(
       onTap: this.onTap,
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 24,
-          vertical: 12,
+          vertical: 18,
         ),
         child: Ink(
-          width: size.width,
+          width: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -32,11 +30,10 @@ class CourseItemWidget extends StatelessWidget {
                 this.name,
                 style: AppTexts.courseItemTitle,
               ),
-              IconButton(
-                icon: Icon(Icons.chevron_right),
-                iconSize: 24,
+              Icon(
+                Icons.chevron_right,
+                size: 24,
                 color: AppColors.gray,
-                onPressed: () {},
               ),
             ],
           ),

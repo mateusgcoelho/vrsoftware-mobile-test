@@ -6,12 +6,12 @@ import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/student_item_widget.dart';
 import 'package:mobile/shared/widgets/tab_item_widget.dart';
 
-class CourseViewPage extends StatelessWidget {
-  final CourseModel course;
+class StudentViewPage extends StatelessWidget {
+  final StudentModel student;
 
-  const CourseViewPage({
+  const StudentViewPage({
     Key? key,
-    required this.course,
+    required this.student,
   }) : super(key: key);
 
   @override
@@ -42,7 +42,7 @@ class CourseViewPage extends StatelessWidget {
                     },
                   ),
                   Text(
-                    course.description,
+                    student.name,
                     style: AppTexts.courseInfoAppBar,
                     textAlign: TextAlign.center,
                   ),
@@ -67,7 +67,7 @@ class CourseViewPage extends StatelessWidget {
                   horizontal: 32,
                 ),
                 child: Text(
-                  course.ementa,
+                  student.createdAt,
                   style: AppTexts.courseInfoDescription,
                 ),
               ),
@@ -78,25 +78,12 @@ class CourseViewPage extends StatelessWidget {
                 child: Row(
                   children: [
                     TabItemWidget(
-                      title: "ALUNOS",
+                      title: "CURSOS",
                     ),
                   ],
                 ),
               ),
-              Column(
-                children: course.students
-                    .map((studentCourse) => StudentItemWidget(
-                          onTap: () {
-                            Navigator.pushNamed(
-                              context,
-                              "/student_view",
-                              arguments: studentCourse,
-                            );
-                          },
-                          student: studentCourse,
-                        ))
-                    .toList(),
-              ),
+              Column(children: []),
             ],
           ),
         ],

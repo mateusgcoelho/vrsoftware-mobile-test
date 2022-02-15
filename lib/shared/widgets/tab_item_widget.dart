@@ -3,7 +3,12 @@ import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 
 class TabItemWidget extends StatelessWidget {
-  const TabItemWidget({Key? key}) : super(key: key);
+  final String title;
+
+  const TabItemWidget({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class TabItemWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "ALUNOS",
+                    this.title,
                     style: AppTexts.buttonTabItem,
                   ),
                 ],
