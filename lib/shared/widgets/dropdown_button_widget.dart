@@ -7,11 +7,13 @@ import 'package:provider/provider.dart';
 class DropdownButtonWidget extends StatefulWidget {
   final String initialValue;
   final dynamic list;
+  final Function(String value) onChangedValue;
 
   const DropdownButtonWidget({
     Key? key,
     required this.initialValue,
     required this.list,
+    required this.onChangedValue,
   }) : super(key: key);
 
   @override
@@ -48,10 +50,10 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
               color: AppColors.primaryLight,
             ),
             onChanged: (String? newValue) {
-              print(_selectedItem.isEmpty);
+              widget.onChangedValue(newValue!);
 
               setState(() {
-                _selectedItem = newValue!;
+                _selectedItem = newValue;
               });
             },
             items: widget.list.map<DropdownMenuItem<String>>((courseName) {

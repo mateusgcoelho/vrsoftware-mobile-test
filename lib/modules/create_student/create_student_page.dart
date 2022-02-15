@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/modules/create_student/create_student_controller.dart';
 import 'package:mobile/providers/app_provider.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
@@ -13,6 +14,8 @@ class CreateStudentPage extends StatefulWidget {
 }
 
 class _CreateStudentPageState extends State<CreateStudentPage> {
+  final controller = CreateStudentController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,20 +62,33 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                 vertical: 32,
               ),
               child: Form(
+                key: controller.formKey,
                 child: Column(
                   children: [
-                    InputTextWidget(labelText: "Nome", onChanged: (value) {}),
+                    InputTextWidget(
+                      labelText: "Nome",
+                      onChanged: (value) {
+                        controller.onChange(name: value);
+                      },
+                      validator: controller.validateName,
+                    ),
                     SizedBox(
                       height: 12,
                     ),
                     DropdownButtonWidget(
                       initialValue: context.read<AppProvider>().coursesName[0],
                       list: context.read<AppProvider>().coursesName,
+                      onChangedValue: (value) {
+                        controller.onChange(courseCode: 1);
+                      },
                     ),
                     SizedBox(
                       height: 24,
                     ),
                     ButtonWidget(
+                      onTap: () {
+                        controller.submit(context);
+                      },
                       text: "Cadastrar",
                     ),
                   ],

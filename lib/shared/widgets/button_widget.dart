@@ -6,12 +6,14 @@ class ButtonWidget extends StatelessWidget {
   final bool? enable;
   final String text;
   final IconData? iconData;
+  final Function()? onTap;
 
   const ButtonWidget({
     Key? key,
     this.enable = true,
     required this.text,
     this.iconData,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -19,7 +21,7 @@ class ButtonWidget extends StatelessWidget {
     return Material(
       child: InkWell(
         enableFeedback: this.enable,
-        onTap: this.enable == true ? () {} : null,
+        onTap: this.enable == true ? this.onTap : null,
         child: Ink(
           decoration: BoxDecoration(
             color:

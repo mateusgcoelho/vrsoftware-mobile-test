@@ -50,6 +50,7 @@ class InputTextWidget extends StatelessWidget {
             autocorrect: this.autocorrect!,
             keyboardType: this.keyboardType,
             style: AppTexts.input,
+            onChanged: this.onChanged,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 22,
