@@ -36,7 +36,7 @@ class _CoursesPageState extends State<CoursesPage> {
               child: Container(
                 height: 400,
                 child: Text(
-                  "Erro ao procurar os cursos!",
+                  snapshot.error.toString(),
                   style: AppTexts.courseInfoDescription,
                   textAlign: TextAlign.center,
                 ),

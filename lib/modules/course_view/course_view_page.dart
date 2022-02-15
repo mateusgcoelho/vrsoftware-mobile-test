@@ -30,6 +30,7 @@ class CourseViewPage extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
                     icon: Icon(
@@ -82,11 +83,11 @@ class CourseViewPage extends StatelessWidget {
                 ),
               ),
               Column(
-                children: [
-                  StudentItemWidget(),
-                  StudentItemWidget(),
-                  StudentItemWidget(),
-                ],
+                children: course.students
+                    .map((studentCourse) => StudentItemWidget(
+                          student: studentCourse,
+                        ))
+                    .toList(),
               ),
             ],
           ),

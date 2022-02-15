@@ -9,10 +9,7 @@ class AllStudentsPage extends StatelessWidget {
     return Container(
       width: double.infinity,
       child: Column(
-        children: [
-          StudentItemWidget(),
-          StudentItemWidget(),
-        ],
+        children: [],
       ),
     );
   }
