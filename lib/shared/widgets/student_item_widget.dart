@@ -2,13 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 
-class CourseItemWidget extends StatelessWidget {
-  final String name;
-
-  const CourseItemWidget({
-    Key? key,
-    required this.name,
-  }) : super(key: key);
+class StudentItemWidget extends StatelessWidget {
+  const StudentItemWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +21,18 @@ class CourseItemWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                this.name,
-                style: AppTexts.courseItemTitle,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "João Mateus",
+                    style: AppTexts.courseItemTitle,
+                  ),
+                  Text(
+                    "02/15/2022",
+                    style: AppTexts.courseItemTitle,
+                  ),
+                ],
               ),
               IconButton(
                 icon: Icon(Icons.chevron_right),

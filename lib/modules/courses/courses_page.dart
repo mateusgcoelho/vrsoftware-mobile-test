@@ -12,8 +12,12 @@ class CoursesPage extends StatelessWidget {
       width: size.width,
       child: Column(
         children: [
-          CourseItemWidget(),
-          CourseItemWidget(),
+          CourseItemWidget(
+            name: "Informatica Basica",
+          ),
+          CourseItemWidget(
+            name: "Banco de Dados",
+          ),
         ],
       ),
     );

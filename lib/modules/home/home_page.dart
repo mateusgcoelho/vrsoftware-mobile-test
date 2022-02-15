@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 bottom: 24,
               ),
               title: Text(
-                "Cursos",
+                controller.currentPage == 0 ? "Cursos" : "Alunos",
                 style: AppTexts.appBar,
               ),
               trailing: InkWell(
