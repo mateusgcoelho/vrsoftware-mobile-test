@@ -5,10 +5,12 @@ import 'package:mobile/shared/widgets/button/button_widget.dart';
 
 class DefaultEditModalWidget extends StatelessWidget {
   final Function() onDelete;
+  final Function() onEdit;
 
   const DefaultEditModalWidget({
     Key? key,
     required this.onDelete,
+    required this.onEdit,
   }) : super(key: key);
 
   @override
@@ -37,6 +39,7 @@ class DefaultEditModalWidget extends StatelessWidget {
                   ButtonWidget(
                     iconData: Icons.edit,
                     text: "Alterar",
+                    onTap: this.onEdit,
                   ),
                   ButtonWidget(
                     iconData: Icons.delete,

@@ -3,6 +3,7 @@ import 'package:mobile/models/student_model.dart';
 import 'package:mobile/modules/student_view/student_view_controller.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
+import 'package:mobile/shared/widgets/button/button_widget.dart';
 import 'package:mobile/shared/widgets/default_edit_modal/default_edit_modal_widget.dart';
 
 class StudentViewPage extends StatefulWidget {
@@ -60,6 +61,13 @@ class _StudentViewPageState extends State<StudentViewPage> {
                         isScrollControlled: true,
                         builder: (BuildContext context) {
                           return DefaultEditModalWidget(
+                            onEdit: () {
+                              Navigator.pushNamed(
+                                context,
+                                "/update_student",
+                                arguments: widget.student,
+                              );
+                            },
                             onDelete: () {
                               controller.deleteStudent(
                                 context: context,
@@ -111,14 +119,24 @@ class _StudentViewPageState extends State<StudentViewPage> {
                                   ]
                                 : widget.student.courses
                                     .map((course) => TextSpan(
-                                          text: course.description,
+                                          text: course.description + "\n",
                                           style: AppTexts
                                               .courseInfoDescriptionBold,
                                         ))
                                     .toList(),
                           ),
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      ButtonWidget(
+                        text: "Matricular",
+                        onTap: () {
+                          Navigator.pushNamed(context, "/enroll_student",
+                              arguments: widget.student);
+                        },
+                      ),
                     ],
                   ),
                 ),

@@ -8,6 +8,9 @@ import 'package:mobile/modules/create_student/create_student_page.dart';
 import 'package:mobile/modules/home/home_page.dart';
 import 'package:mobile/modules/splash/splash_page.dart';
 import 'package:mobile/modules/student_view/student_view_page.dart';
+import 'package:mobile/modules/update_course/update_course_page.dart';
+import 'package:mobile/modules/update_student/register_course/register_course_page.dart';
+import 'package:mobile/modules/update_student/update_student_page.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 
 class AppWidget extends StatelessWidget {
@@ -43,6 +46,17 @@ class AppWidget extends StatelessWidget {
             ),
         "/create_course": (context) => CreateCoursePage(),
         "/create_student": (context) => CreateStudentPage(),
+        "/update_student": (context) => UpdateStudentPage(
+              student:
+                  ModalRoute.of(context)!.settings.arguments as StudentModel,
+            ),
+        "/update_course": (context) => UpdateCoursePage(
+              course: ModalRoute.of(context)!.settings.arguments as CourseModel,
+            ),
+        "/enroll_student": (context) => RegisterCoursePage(
+              student:
+                  ModalRoute.of(context)!.settings.arguments as StudentModel,
+            ),
       },
     );
   }

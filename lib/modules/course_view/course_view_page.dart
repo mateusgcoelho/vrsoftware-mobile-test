@@ -67,6 +67,13 @@ class _CourseViewPageState extends State<CourseViewPage> {
                           isScrollControlled: true,
                           builder: (BuildContext context) {
                             return DefaultEditModalWidget(
+                              onEdit: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  "/update_course",
+                                  arguments: widget.course,
+                                );
+                              },
                               onDelete: () {
                                 controller.deleteCourse(
                                   context: context,
