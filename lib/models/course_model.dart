@@ -12,8 +12,14 @@ class CourseModel {
     List tempList = List.from(json["students"]);
 
     List<StudentModel> newList = tempList
-        .map((item) =>
-            StudentModel(item["name"], item["courses"], item["created_at"]))
+        .map(
+          (item) => StudentModel(
+            id: item["id"],
+            name: item["name"],
+            courses: item["courses"],
+            createdAt: item["created_at"],
+          ),
+        )
         .toList();
 
     return CourseModel(

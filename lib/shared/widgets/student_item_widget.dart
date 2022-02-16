@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/student_model.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 
@@ -7,12 +6,16 @@ class StudentItemWidget extends StatelessWidget {
   final String name;
   final String subTitleName;
   final Function()? onTap;
+  final Function()? onActionIconButton;
+  final IconData? iconDataButton;
 
   const StudentItemWidget({
     Key? key,
     this.onTap,
     required this.name,
     required this.subTitleName,
+    this.onActionIconButton,
+    this.iconDataButton,
   }) : super(key: key);
 
   @override
@@ -44,11 +47,20 @@ class StudentItemWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              Icon(
-                Icons.chevron_right,
-                size: 24,
-                color: this.onTap != null ? AppColors.gray : AppColors.white,
-              ),
+              this.onActionIconButton != null
+                  ? IconButton(
+                      icon: Icon(
+                        this.iconDataButton,
+                        color: AppColors.primary,
+                      ),
+                      onPressed: this.onActionIconButton,
+                    )
+                  : Icon(
+                      Icons.chevron_right,
+                      size: 24,
+                      color:
+                          this.onTap != null ? AppColors.gray : AppColors.white,
+                    ),
             ],
           ),
         ),

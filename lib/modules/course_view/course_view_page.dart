@@ -94,6 +94,10 @@ class CourseViewPage extends StatelessWidget {
                     .map((studentCourse) => StudentItemWidget(
                           name: studentCourse.name,
                           subTitleName: studentCourse.createdAt,
+                          onActionIconButton: () {
+                            print(studentCourse.id);
+                          },
+                          iconDataButton: Icons.close,
                         ))
                     .toList(),
               ),

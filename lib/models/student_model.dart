@@ -1,11 +1,17 @@
 import 'package:mobile/models/course_model.dart';
 
 class StudentModel {
+  final int id;
   final String name;
   final List courses;
   final String createdAt;
 
-  StudentModel(this.name, this.courses, this.createdAt);
+  StudentModel({
+    required this.id,
+    required this.name,
+    required this.courses,
+    required this.createdAt,
+  });
 
   factory StudentModel.fromJson(dynamic json) {
     List tempList = List.from(json["courses"]);
@@ -15,6 +21,10 @@ class StudentModel {
             item["students"], item["created_at"]))
         .toList();
 
-    return StudentModel(json["name"], newList, json["created_at"]);
+    return StudentModel(
+        id: json["id"],
+        name: json["name"],
+        courses: newList,
+        createdAt: json["created_at"]);
   }
 }
