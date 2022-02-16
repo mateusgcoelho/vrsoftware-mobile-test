@@ -3,9 +3,9 @@ import 'package:mobile/modules/create_student/create_student_controller.dart';
 import 'package:mobile/providers/app_provider.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
-import 'package:mobile/shared/widgets/button_widget.dart';
-import 'package:mobile/shared/widgets/dropdown_button_widget.dart';
-import 'package:mobile/shared/widgets/input_widget.dart';
+import 'package:mobile/shared/widgets/button/button_widget.dart';
+import 'package:mobile/shared/widgets/dropdown/dropdown_button_widget.dart';
+import 'package:mobile/shared/widgets/input/input_widget.dart';
 import "package:provider/provider.dart";
 
 class CreateStudentPage extends StatefulWidget {

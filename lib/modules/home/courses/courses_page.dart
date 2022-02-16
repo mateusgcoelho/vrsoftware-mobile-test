@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/models/course_model.dart';
 import 'package:mobile/modules/home/home_controller.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
-import 'package:mobile/shared/widgets/course_item_widget.dart';
+import 'package:mobile/shared/widgets/course_item/course_item_widget.dart';
 
 class CoursesPage extends StatefulWidget {
   const CoursesPage({Key? key}) : super(key: key);

@@ -4,9 +4,9 @@ import 'package:mobile/models/student_model.dart';
 import 'package:mobile/modules/course_view/course_view_controller.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
-import 'package:mobile/shared/widgets/course_view_modal_widget.dart';
-import 'package:mobile/shared/widgets/student_item_widget.dart';
-import 'package:mobile/shared/widgets/tab_item_widget.dart';
+import 'package:mobile/shared/widgets/course_view/course_view_modal_widget.dart';
+import 'package:mobile/shared/widgets/student/student_item_widget.dart';
+import 'package:mobile/shared/widgets/tab_item/tab_item_widget.dart';
 
 class CourseViewPage extends StatefulWidget {
   final CourseModel course;
@@ -66,7 +66,14 @@ class _CourseViewPageState extends State<CourseViewPage> {
                           context: context,
                           isScrollControlled: true,
                           builder: (BuildContext context) {
-                            return CourseViewModalWidget();
+                            return CourseViewModalWidget(
+                              onDelete: () {
+                                controller.deleteCourse(
+                                  context: context,
+                                  code: widget.course.code,
+                                );
+                              },
+                            );
                           });
                     },
                   ),

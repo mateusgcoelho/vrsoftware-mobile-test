@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
-import 'package:mobile/shared/widgets/button_widget.dart';
+import 'package:mobile/shared/widgets/button/button_widget.dart';
 
 class CourseViewModalWidget extends StatelessWidget {
-  const CourseViewModalWidget({Key? key}) : super(key: key);
+  final Function() onDelete;
+
+  const CourseViewModalWidget({
+    Key? key,
+    required this.onDelete,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 260,
+      height: 272,
       color: AppColors.white,
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: 20,
+          vertical: 32,
           horizontal: 24,
         ),
         child: Column(
@@ -25,7 +30,7 @@ class CourseViewModalWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
-                vertical: 24,
+                vertical: 32,
               ),
               child: Column(
                 children: [
@@ -36,6 +41,7 @@ class CourseViewModalWidget extends StatelessWidget {
                   ButtonWidget(
                     iconData: Icons.delete,
                     text: "Excluir",
+                    onTap: this.onDelete,
                   ),
                 ],
               ),

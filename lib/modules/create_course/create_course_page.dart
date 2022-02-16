@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
-import 'package:mobile/shared/widgets/button_widget.dart';
-import 'package:mobile/shared/widgets/input_widget.dart';
+import 'package:mobile/shared/widgets/button/button_widget.dart';
+import 'package:mobile/shared/widgets/input/input_widget.dart';
 
 class CreateCoursePage extends StatelessWidget {
   @override

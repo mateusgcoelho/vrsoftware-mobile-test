@@ -3,8 +3,8 @@ import 'package:mobile/models/course_model.dart';
 import 'package:mobile/models/student_model.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
-import 'package:mobile/shared/widgets/student_item_widget.dart';
-import 'package:mobile/shared/widgets/tab_item_widget.dart';
+import 'package:mobile/shared/widgets/student/student_item_widget.dart';
+import 'package:mobile/shared/widgets/tab_item/tab_item_widget.dart';
 
 class StudentViewPage extends StatelessWidget {
   final StudentModel student;

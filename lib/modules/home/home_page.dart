@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: AppColors.white,
       bottomNavigationBar: Container(
-        height: 64,
+        height: 80,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
