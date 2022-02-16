@@ -17,7 +17,7 @@ class _StudentsPageState extends State<StudentsPage> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List>(
-      future: controller.getAllStudents(),
+      future: controller.getAllStudents(context),
       builder: (context, snapshot) {
         List<Widget> children = [
           Center(
@@ -62,11 +62,19 @@ class _StudentsPageState extends State<StudentsPage> {
               .toList();
         }
 
-        return Container(
-          child: Column(
-            children: children,
-          ),
-        );
+        return children.length == 0
+            ? Text(
+                "Nenhum aluno registrado!",
+                style: TextStyle(
+                  color: Colors.red[300],
+                  fontSize: 16,
+                ),
+              )
+            : Container(
+                child: Column(
+                  children: children,
+                ),
+              );
       },
     );
   }

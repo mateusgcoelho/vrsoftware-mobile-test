@@ -3,10 +3,10 @@ import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/button/button_widget.dart';
 
-class CourseViewModalWidget extends StatelessWidget {
+class DefaultEditModalWidget extends StatelessWidget {
   final Function() onDelete;
 
-  const CourseViewModalWidget({
+  const DefaultEditModalWidget({
     Key? key,
     required this.onDelete,
   }) : super(key: key);

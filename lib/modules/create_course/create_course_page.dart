@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/modules/create_course/create_course_controller.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/button/button_widget.dart';
 import 'package:mobile/shared/widgets/input/input_widget.dart';
 
-class CreateCoursePage extends StatelessWidget {
+class CreateCoursePage extends StatefulWidget {
+  @override
+  _CreateCoursePageState createState() => _CreateCoursePageState();
+}
+
+class _CreateCoursePageState extends State<CreateCoursePage> {
+  final controller = CreateCourseController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,17 +58,30 @@ class CreateCoursePage extends StatelessWidget {
                 vertical: 32,
               ),
               child: Form(
+                key: controller.formKey,
                 child: Column(
                   children: [
-                    InputTextWidget(labelText: "Nome", onChanged: (value) {}),
+                    InputTextWidget(
+                      labelText: "Nome",
+                      onChanged: (value) {
+                        controller.onChange(description: value);
+                      },
+                      validator: controller.validateDescription,
+                    ),
                     InputTextWidget(
                       labelText: "Descrição",
                       minLines: 8,
                       maxLines: 8,
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        controller.onChange(ementa: value);
+                      },
+                      validator: controller.validateEmenta,
                     ),
                     ButtonWidget(
                       text: "Cadastrar",
+                      onTap: () {
+                        controller.submit(context);
+                      },
                     ),
                   ],
                 ),

@@ -17,6 +17,14 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
   final controller = CreateStudentController();
 
   @override
+  void initState() {
+    controller.onChange(
+        courseCode: context.read<AppProvider>().courses[0]["code"]);
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -76,13 +84,15 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                       height: 12,
                     ),
                     DropdownButtonWidget(
-                      initialValue: context
-                          .read<AppProvider>()
-                          .courses[0]["code"]
-                          .toString(),
+                      initialValue:
+                          context.read<AppProvider>().courses.length == 0
+                              ? ""
+                              : context
+                                  .read<AppProvider>()
+                                  .courses[0]["code"]
+                                  .toString(),
                       list: context.read<AppProvider>().courses,
                       onChangedValue: (value) {
-                        print(value);
                         final numberValue = int.parse(value);
 
                         controller.onChange(

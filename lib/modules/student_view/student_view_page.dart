@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/models/course_model.dart';
 import 'package:mobile/models/student_model.dart';
+import 'package:mobile/modules/student_view/student_view_controller.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
-import 'package:mobile/shared/widgets/student/student_item_widget.dart';
-import 'package:mobile/shared/widgets/tab_item/tab_item_widget.dart';
+import 'package:mobile/shared/widgets/default_edit_modal/default_edit_modal_widget.dart';
 
-class StudentViewPage extends StatelessWidget {
+class StudentViewPage extends StatefulWidget {
   final StudentModel student;
 
   const StudentViewPage({
     Key? key,
     required this.student,
   }) : super(key: key);
+
+  @override
+  _StudentViewPageState createState() => _StudentViewPageState();
+}
+
+class _StudentViewPageState extends State<StudentViewPage> {
+  final controller = StudentViewController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class StudentViewPage extends StatelessWidget {
                   },
                 ),
                 Text(
-                  student.name,
+                  widget.student.name,
                   style: AppTexts.courseInfoAppBar,
                   textAlign: TextAlign.center,
                 ),
@@ -49,7 +55,19 @@ class StudentViewPage extends StatelessWidget {
                   color: AppColors.gray,
                   iconSize: 26,
                   onPressed: () {
-                    Navigator.pop(context);
+                    showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (BuildContext context) {
+                          return DefaultEditModalWidget(
+                            onDelete: () {
+                              controller.deleteStudent(
+                                context: context,
+                                id: widget.student.id,
+                              );
+                            },
+                          );
+                        });
                   },
                 ),
               ],
@@ -70,7 +88,7 @@ class StudentViewPage extends StatelessWidget {
                           style: AppTexts.courseInfoDescription,
                           children: [
                             TextSpan(
-                              text: student.createdAt,
+                              text: widget.student.createdAt,
                               style: AppTexts.courseInfoDescriptionBold,
                             ),
                           ],
@@ -82,7 +100,7 @@ class StudentViewPage extends StatelessWidget {
                           TextSpan(
                             text: "Cursos: \n",
                             style: AppTexts.courseInfoDescription,
-                            children: student.courses.length <= 0
+                            children: widget.student.courses.length <= 0
                                 ? [
                                     TextSpan(
                                       text: "Nenhum curso atualmente!",
@@ -91,7 +109,7 @@ class StudentViewPage extends StatelessWidget {
                                       ),
                                     ),
                                   ]
-                                : student.courses
+                                : widget.student.courses
                                     .map((course) => TextSpan(
                                           text: course.description,
                                           style: AppTexts
@@ -105,7 +123,6 @@ class StudentViewPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Column(children: []),
             ],
           ),
         ],

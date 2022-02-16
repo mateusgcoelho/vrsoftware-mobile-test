@@ -61,11 +61,19 @@ class _CoursesPageState extends State<CoursesPage> {
               .toList();
         }
 
-        return Container(
-          child: Column(
-            children: children,
-          ),
-        );
+        return children.length == 0
+            ? Text(
+                "Nenhum curso registrado!",
+                style: TextStyle(
+                  color: Colors.red[300],
+                  fontSize: 16,
+                ),
+              )
+            : Container(
+                child: Column(
+                  children: children,
+                ),
+              );
       },
     );
   }

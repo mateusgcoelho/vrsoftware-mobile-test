@@ -4,12 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class CourseViewController {
-  bool modalEditIsVisible = false;
-
-  toogleModalEditIsVisible() {
-    modalEditIsVisible = !modalEditIsVisible;
-  }
-
   Future<void> unsubscribeStudent({context, student, code}) async {
     Map<String, dynamic> body = {
       'code': code,
@@ -35,13 +29,26 @@ class CourseViewController {
           ),
         );
       } else {
-        throw Exception("Erro ao desmatricular o aluno!");
+        Navigator.pop(context);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("Erro ao desmatricular o aluno!"),
+          ),
+        );
       }
+    }).catchError((error) {
+      Navigator.pop(context);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Erro ao desmatricular o aluno!"),
+        ),
+      );
     });
   }
 
   Future<void> deleteCourse({context, code}) async {
-    print(code);
     var url =
         Uri.parse("http://192.168.1.221:3030/v1/courses/" + code.toString());
     await http
@@ -67,8 +74,13 @@ class CourseViewController {
         );
       }
     }).catchError((error) {
-      print(error);
-      throw Exception("Erro ao deletar os cursos!");
+      Navigator.pop(context);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Erro ao deletar os cursos!"),
+        ),
+      );
     });
   }
 }
