@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class CourseViewController {
   Future<void> unsubscribeStudent({context, student, code}) async {
@@ -10,8 +11,7 @@ class CourseViewController {
     };
 
     var url = Uri.parse(
-      "http://192.168.1.221:3030/v1/students/unsubscribe/" +
-          student.id.toString(),
+      dotenv.env['API_URL']! + "/students/unsubscribe/" + student.id.toString(),
     );
     await http
         .patch(
@@ -49,8 +49,7 @@ class CourseViewController {
   }
 
   Future<void> deleteCourse({context, code}) async {
-    var url =
-        Uri.parse("http://192.168.1.221:3030/v1/courses/" + code.toString());
+    var url = Uri.parse(dotenv.env['API_URL']! + "/courses/" + code.toString());
     await http
         .delete(
       url,

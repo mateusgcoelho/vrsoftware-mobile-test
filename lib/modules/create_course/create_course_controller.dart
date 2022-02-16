@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import "package:http/http.dart" as http;
 import 'package:mobile/models/course_model_request.dart';
 
@@ -24,7 +25,7 @@ class CreateCourseController {
       'ementa': model.ementa
     };
 
-    var url = Uri.parse("http://192.168.1.221:3030/v1/courses");
+    var url = Uri.parse(dotenv.env['API_URL']! + "/courses");
     await http
         .post(
       url,
