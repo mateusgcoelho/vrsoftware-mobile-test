@@ -43,8 +43,8 @@ class UpdateCourseController {
           ),
         );
       } else {
-        Navigator.pushReplacementNamed(context, "/course_view",
-            arguments: course);
+        Navigator.pop(context);
+        Navigator.pop(context);
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -53,8 +53,8 @@ class UpdateCourseController {
         );
       }
     }).catchError((error) {
-      Navigator.pushReplacementNamed(context, "/course_view",
-          arguments: course);
+      Navigator.pop(context);
+      Navigator.pop(context);
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

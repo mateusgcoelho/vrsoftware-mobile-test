@@ -21,7 +21,7 @@ class RegisterCourseController {
   Future<void> updateStudentService(BuildContext context, student) async {
     Map<String, dynamic> body = {'code': model.courseCode};
 
-    var url = Uri.parse("http://192.168.1.221:3030/v1/students/enroll_course/" +
+    var url = Uri.parse("http://192.168.1.221:3030/v1/students/enroll/" +
         student.id.toString());
     await http
         .patch(
@@ -30,7 +30,6 @@ class RegisterCourseController {
       body: json.encode(body),
     )
         .then((response) {
-      print(response.body);
       if (response.statusCode == 200) {
         Navigator.pushReplacementNamed(context, "/home");
         ScaffoldMessenger.of(context).showSnackBar(
@@ -39,8 +38,8 @@ class RegisterCourseController {
           ),
         );
       } else {
-        Navigator.pushReplacementNamed(context, "/student_view",
-            arguments: student);
+        Navigator.pop(context);
+        Navigator.pop(context);
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -49,8 +48,8 @@ class RegisterCourseController {
         );
       }
     }).catchError((error) {
-      Navigator.pushReplacementNamed(context, "/student_view",
-          arguments: student);
+      Navigator.pop(context);
+      Navigator.pop(context);
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
