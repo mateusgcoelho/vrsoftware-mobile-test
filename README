@@ -14,3 +14,10 @@ Iniciar aplicativo com null safety desativado! (Por conta de uma lib que estou u
 ```
 flutter run --no-sound-null-safety
 ```
+
+## Build APP
+
+Buildar apk
+```
+flutter build apk --release --no-sound-null-safety
+```
