@@ -4,8 +4,13 @@ Instalar dependencias
 ```
 flutter pub get
 ```
+## Variaveis ambiente
 
-Iniciar aplicativo
+Criar arquivo .env e alterar as variaveis ambientes conforme o exemplo no arquivo (.env.example)
+
+## Iniciando APP
+
+Iniciar aplicativo com null safety desativado! (Por conta de uma lib que estou utilizando)
 ```
 flutter run --no-sound-null-safety
 ```
