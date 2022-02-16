@@ -1,0 +1,11 @@
+# Passo a Passo
+
+Instalar dependencias
+```
+flutter pub get
+```
+
+Iniciar aplicativo
+```
+flutter run --no-sound-null-safety
+```
