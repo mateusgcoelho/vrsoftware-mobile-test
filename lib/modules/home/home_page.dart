@@ -25,14 +25,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: AppColors.white,
       bottomNavigationBar: Container(
-        height: 90,
+        height: 64,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
               icon: Icon(
                 Icons.home,
-                size: 32,
+                size: 28,
                 color: controller.currentPage == 0
                     ? AppColors.primary
                     : AppColors.gray,
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: Icon(
                 Icons.people,
-                size: 32,
+                size: 28,
                 color: controller.currentPage == 1
                     ? AppColors.primary
                     : AppColors.gray,

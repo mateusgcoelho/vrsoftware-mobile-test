@@ -89,6 +89,11 @@ class CreateStudentController {
         .then((response) {
       if (response.statusCode == 200) {
         Navigator.pushReplacementNamed(context, "/home");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(model.name! + " matriculado com sucesso!"),
+          ),
+        );
       } else {
         throw Exception("Erro ao carregar os cursos!");
       }

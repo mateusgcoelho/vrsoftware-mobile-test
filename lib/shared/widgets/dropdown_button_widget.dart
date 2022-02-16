@@ -56,11 +56,11 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
                 _selectedItem = newValue;
               });
             },
-            items: widget.list.map<DropdownMenuItem<String>>((courseName) {
+            items: widget.list.map<DropdownMenuItem<String>>((course) {
               return DropdownMenuItem<String>(
-                value: courseName,
+                value: course["code"].toString(),
                 child: Text(
-                  courseName,
+                  course["description"],
                   style: AppTexts.buttonText,
                 ),
               );

@@ -82,12 +82,22 @@ class StudentViewPage extends StatelessWidget {
                           TextSpan(
                             text: "Cursos: \n",
                             style: AppTexts.courseInfoDescription,
-                            children: student.courses
-                                .map((course) => TextSpan(
-                                      text: course.description,
-                                      style: AppTexts.courseInfoDescriptionBold,
-                                    ))
-                                .toList(),
+                            children: student.courses.length <= 0
+                                ? [
+                                    TextSpan(
+                                      text: "Nenhum curso atualmente!",
+                                      style: TextStyle(
+                                        color: Colors.red[400],
+                                      ),
+                                    ),
+                                  ]
+                                : student.courses
+                                    .map((course) => TextSpan(
+                                          text: course.description,
+                                          style: AppTexts
+                                              .courseInfoDescriptionBold,
+                                        ))
+                                    .toList(),
                           ),
                         ),
                       )

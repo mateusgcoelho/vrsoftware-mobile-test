@@ -76,10 +76,18 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
                       height: 12,
                     ),
                     DropdownButtonWidget(
-                      initialValue: context.read<AppProvider>().coursesName[0],
-                      list: context.read<AppProvider>().coursesName,
+                      initialValue: context
+                          .read<AppProvider>()
+                          .courses[0]["code"]
+                          .toString(),
+                      list: context.read<AppProvider>().courses,
                       onChangedValue: (value) {
-                        controller.onChange(courseCode: 1);
+                        print(value);
+                        final numberValue = int.parse(value);
+
+                        controller.onChange(
+                          courseCode: numberValue,
+                        );
                       },
                     ),
                     SizedBox(

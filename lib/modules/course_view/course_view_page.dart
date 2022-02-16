@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/models/course_model.dart';
 import 'package:mobile/models/student_model.dart';
+import 'package:mobile/modules/course_view/course_view_controller.dart';
 import 'package:mobile/shared/themes/app_colors.dart';
 import 'package:mobile/shared/themes/app_texts.dart';
 import 'package:mobile/shared/widgets/course_view_modal_widget.dart';
 import 'package:mobile/shared/widgets/student_item_widget.dart';
 import 'package:mobile/shared/widgets/tab_item_widget.dart';
 
-class CourseViewPage extends StatelessWidget {
+class CourseViewPage extends StatefulWidget {
   final CourseModel course;
 
   const CourseViewPage({
     Key? key,
     required this.course,
   }) : super(key: key);
+
+  @override
+  _CourseViewPageState createState() => _CourseViewPageState();
+}
+
+class _CourseViewPageState extends State<CourseViewPage> {
+  final controller = CourseViewController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +51,7 @@ class CourseViewPage extends StatelessWidget {
                     },
                   ),
                   Text(
-                    course.description,
+                    widget.course.description,
                     style: AppTexts.courseInfoAppBar,
                     textAlign: TextAlign.center,
                   ),
@@ -73,7 +81,7 @@ class CourseViewPage extends StatelessWidget {
                   horizontal: 32,
                 ),
                 child: Text(
-                  course.ementa,
+                  widget.course.ementa,
                   style: AppTexts.courseInfoDescription,
                 ),
               ),
@@ -90,12 +98,16 @@ class CourseViewPage extends StatelessWidget {
                 ),
               ),
               Column(
-                children: course.students
+                children: widget.course.students
                     .map((studentCourse) => StudentItemWidget(
                           name: studentCourse.name,
                           subTitleName: studentCourse.createdAt,
                           onActionIconButton: () {
-                            print(studentCourse.id);
+                            controller.unsubscribeStudent(
+                              context: context,
+                              student: studentCourse,
+                              code: widget.course.code,
+                            );
                           },
                           iconDataButton: Icons.close,
                         ))
