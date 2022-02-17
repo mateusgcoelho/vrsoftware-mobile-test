@@ -18,8 +18,10 @@ class _CreateStudentPageState extends State<CreateStudentPage> {
 
   @override
   void initState() {
-    controller.onChange(
-        courseCode: context.read<AppProvider>().courses[0]["code"]);
+    if (context.read<AppProvider>().courses.length > 0) {
+      controller.onChange(
+          courseCode: context.read<AppProvider>().courses[0]["code"]);
+    }
 
     super.initState();
   }

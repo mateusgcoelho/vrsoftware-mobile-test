@@ -33,7 +33,7 @@ class _DropdownButtonWidgetState extends State<DropdownButtonWidget> {
             ),
             child: Container(
               child: Text(
-                "Nenhuma matéria existente!",
+                "Nenhum curso existente!",
                 style: TextStyle(
                   color: Colors.red[400],
                 ),

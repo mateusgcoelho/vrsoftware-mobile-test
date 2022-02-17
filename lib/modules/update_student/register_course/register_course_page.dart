@@ -26,9 +26,11 @@ class _RegisterCoursePageState extends State<RegisterCoursePage> {
 
   @override
   void initState() {
+    if (context.read<AppProvider>().courses.length > 0) {
+      controller.onChange(
+          courseCode: context.read<AppProvider>().courses[0]["code"]);
+    }
     controller.onChange(name: widget.student.name);
-    controller.onChange(
-        courseCode: context.read<AppProvider>().courses[0]["code"]);
 
     super.initState();
   }
@@ -102,12 +104,14 @@ class _RegisterCoursePageState extends State<RegisterCoursePage> {
                     SizedBox(
                       height: 12,
                     ),
-                    ButtonWidget(
-                      onTap: () {
-                        controller.submit(context, widget.student);
-                      },
-                      text: "Matricular",
-                    ),
+                    context.read<AppProvider>().courses.length != 0
+                        ? ButtonWidget(
+                            onTap: () {
+                              controller.submit(context, widget.student);
+                            },
+                            text: "Matricular",
+                          )
+                        : Container(),
                   ],
                 ),
               ),

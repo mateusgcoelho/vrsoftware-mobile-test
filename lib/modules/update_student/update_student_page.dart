@@ -27,8 +27,6 @@ class _UpdateStudentPageState extends State<UpdateStudentPage> {
   @override
   void initState() {
     controller.onChange(name: widget.student.name);
-    controller.onChange(
-        courseCode: context.read<AppProvider>().courses[0]["code"]);
 
     super.initState();
   }
