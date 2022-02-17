@@ -23,7 +23,7 @@ class RegisterCourseController {
     Map<String, dynamic> body = {'code': model.courseCode};
 
     var url = Uri.parse(
-        dotenv.env['API_URL']! + "students/enroll/" + student.id.toString());
+        dotenv.env['API_URL']! + "/students/enroll/" + student.id.toString());
     await http
         .patch(
       url,
